@@ -1,4 +1,4 @@
-import { Axios } from "axios"
+import axios from "axios"
 import { createContext, useState } from "react"
 
 const ClimaContext = createContext()
@@ -9,6 +9,7 @@ const ClimaProvider = ({children})=>{
         ciudad: "",
         pais:""
     })
+    const [resultado, setResultado] = useState({})
 
     const datosBusqueda = (e)=>{
         setBusqueda({
@@ -27,9 +28,10 @@ const ClimaProvider = ({children})=>{
 
             const urlClima= `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`
             const {data : clima} = await axios(urlClima)
+            setResultado(clima)
 
         } catch (error) {
-            console.log(eror)
+            console.log(error)
         }
     }
 
@@ -38,7 +40,8 @@ const ClimaProvider = ({children})=>{
             value={{
                 busqueda,
                 datosBusqueda,
-                consultarClima
+                consultarClima,
+                resultado
             }}
         >
             {children}

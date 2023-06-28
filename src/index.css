@@ -87,3 +87,57 @@ form {
   align-items: center;
   width: 100%;
 }
+
+.clima {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   
+}
+
+.clima h2{
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.clima > p:first-of-type{
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.clima p{
+  text-align: center;
+  margin: 0;
+}
+
+.clima p span{
+  font-size: 1rem;
+  vertical-align: super;
+}
+
+
+.tem_max_min{
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 1.3rem;
+}
+
+
+
+@media (min-width: 768px) {
+  .clima > p:first-of-type{
+    font-size: 5rem;
+  }
+
+  .clima p span{
+    font-size: 1.5rem;
+  }
+
+  .tem_max_min p{
+    font-size: 1.4rem;
+  }
+}
