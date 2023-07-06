@@ -1,17 +1,18 @@
 import useClima from "../hooks/useClima";
 import Formulario from "./Formulario";
 import Resultado from "./Resultado";
+import Spinner from "./Spinner";
 
 
 function AppClima() {
 
-    const {resultado} = useClima()
+    const {resultado, spinner, noResultado} = useClima()
     
     return ( 
         <>
             <main className="dos-columnas">
                 <Formulario/>
-                {resultado?.name && <Resultado/> }
+                { spinner ? <Spinner/> : resultado?.name ? <Resultado/> : noResultado ? <p>{noResultado}</p> : <p>El clima se va a mostrar aquí</p> }
             </main>
         
         </>
